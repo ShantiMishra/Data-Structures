@@ -24,6 +24,7 @@ void display(){
         cout<<temp->data<<" ";
         temp=temp->next;
     }
+    cout<<endl;
 }
 
 // Addition of new node after last node
