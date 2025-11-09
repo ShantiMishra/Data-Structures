@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+
+struct node{
+    int data;
+    node *next , *prev;
+};
+    node *temp,*ttemp,*p,*first;
+
+// creating first node 
+
+void create_first(int x){
+      first=new node ;
+      first->data=x;
+      first->next =NULL;
+    first->prev=NULL;  
+}
+
+// to display the linked list
+void display(){
+    temp=first;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp=temp->next;
+    }
+    cout<<endl;
+}
+
+// Addition of new node after last node
+void add_node(int x){
+    temp=first;
+    while(temp->next!=NULL){
+        temp=temp->next;
+    }
+    ttemp=new node;
+    ttemp->data=x;
+    ttemp->next=NULL;
+    temp->next=ttemp;
+}
+
+// Addition of new node before given data.
+void add_Before(int x,int y){
+    temp=first;
+    while(temp->data!=x){
+        ttemp=temp;
+        temp=temp->next;
+    }
+    p=new node;
+    p->data=y;
+    ttemp->next=p;
+    temp->prev=p;
+    p->prev=ttemp;
+    p->next=temp;
+}
+
+
+
+int main(){
+    create_first(10);
+    add_node(20);
+    add_node(30);
+    add_node(40);
+    add_node(50);
+    display();
+    add_Before(30,78);
+    add_Before(78,77);
+    display();
+}
