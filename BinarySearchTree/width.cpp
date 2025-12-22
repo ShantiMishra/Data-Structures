@@ -17,6 +17,7 @@ void create_Root(int x){
     root = new BST;
     root->data = x;
     root->left=root->right=NULL;
+    
 }
 
 void add_Node(int x){
