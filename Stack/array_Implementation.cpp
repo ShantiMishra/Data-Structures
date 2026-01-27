@@ -35,8 +35,7 @@ void push(int x){
         return ;
     }
     P->top++;
-    P->data[P->top]=x;
-}
+    P->data[P->top]=x;}
 
 int pop(){
     int y;

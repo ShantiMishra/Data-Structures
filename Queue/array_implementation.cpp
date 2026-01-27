@@ -32,10 +32,12 @@ int empty(){
 
 void EnQ(int x){
     if(full()==1){
-        return ;
+        cout<<"Queue OverFlow";
+        return;
     }
-    if(P->rear==-1){
+    if(P->front==-1){
         P->front=P->rear=0;
+        P->data[P->rear]=x;
     }
     else{
         P->rear++;
@@ -43,10 +45,23 @@ void EnQ(int x){
     }
 }
 
+void display(){
+    if(P->rear==-1){
+        cout<<"Queue is Empty";
+        return;
+    }
+    for(int i=P->front; i<=P->rear;i++){
+            cout<<P->data[i]<<" ";
+        }
+    
+
+}
+
 int DeQ(){
     int x;
     if(empty()==1){
         cout<<"Queue Underflow";
+        return -1;
     }
 
     x=P->data[P->front];
@@ -55,8 +70,8 @@ int DeQ(){
     }
     else{
         P->front++;
-        return x;
     }   
+    return x;
 }
 
 
@@ -68,6 +83,7 @@ int main(){
     EnQ(20);
     EnQ(30);
     EnQ(40);
-    cout<<DeQ();
+    display();
+    
 }
 
